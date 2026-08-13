@@ -1,0 +1,22 @@
+//+------------------------------------------------------------------+
+//| Hàm xóa tất cả mũi tên trên biểu đồ                              |
+//+------------------------------------------------------------------+
+int start()
+{
+   // Logic để xóa mũi tên
+   DeleteAllArrows();
+   return(0);
+}
+
+void DeleteAllArrows()
+{
+   int objectCount = ObjectsTotal(); // Lấy tổng số đối tượng trên biểu đồ
+   for (int i = objectCount - 1; i >= 0; i--)
+   {
+      string objectName = ObjectName(i); // Lấy tên của đối tượng
+      if (ObjectType(objectName) == OBJ_ARROW) // Kiểm tra nếu đó là mũi tên
+      {
+         ObjectDelete(objectName); // Xóa đối tượng
+      }
+   }
+}
